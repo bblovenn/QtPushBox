@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QPainter>
+#include <QFile>
+#include <QDebug>
 
 enum MapInformation{
     Road,    // 道路：可行走的空地

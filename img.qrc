@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>box.png</file>
+        <file>Inpoint.png</file>
+        <file>point.png</file>
+        <file>wall.png</file>
+    </qresource>
+</RCC>
