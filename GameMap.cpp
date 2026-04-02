@@ -5,6 +5,8 @@ GameMap::GameMap(QObject *parent) : QObject(parent)
     mRow = 0;  //无行
     mCol = 0;  //无列
     mPArr = nullptr; //初始化空指针
+    mPlayerRow = 1; // 默认玩家出生行
+    mPlayerCol = 1; // 默认玩家出生列
 }
 
 GameMap::~GameMap(){
@@ -79,6 +81,21 @@ bool GameMap::InitMap(QString fileName)
 
             for(int j=0;j<mCol;j++){
                 mPArr[i][j] = colList[j].toInt();
+            }
+        }
+
+        // 6. 扫描玩家位置（值为4）
+        mPlayerRow = 1;
+        mPlayerCol = 1;
+        bool foundPlayer = false;
+        for(int i = 0;i < mRow && !foundPlayer;i++){
+            for(int j = 0;j < mCol && !foundPlayer;j++){
+                if(mPArr[i][j] == 4){
+                    mPlayerRow = i;
+                    mPlayerCol = j;
+                    mPArr[i][j] = Road; // 将玩家位置替换为道路
+                    foundPlayer = true;
+                }
             }
         }
 

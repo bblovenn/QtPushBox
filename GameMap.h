@@ -11,7 +11,8 @@ enum MapInformation{
     Wall = 1,    // 墙壁：不可穿过
     Box = 2,     // 箱子：可推动的物体
     Point = 3,   // 目标点：需要推箱子到达的位置
-    InPoint = 4  // 箱子已推入目标点
+    InPoint = 4, // 箱子已推入目标点
+    Player = 5   // 玩家位置标记（解析后替换为 Road）
 };
 
 class GameMap : public QObject
@@ -30,6 +31,10 @@ public:
     int mRow;
     int mCol;
     int** mPArr;
+
+    // 玩家出生位置（从地图文件中提取）
+    int mPlayerRow;
+    int mPlayerCol;
 
 signals:
 

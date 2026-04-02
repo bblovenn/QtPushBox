@@ -8,13 +8,17 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
 
     mGM = new GameMap(this);
-    mRole = new Role(this);
 
+    // 加载地图后才能获取玩家出生位置
     //可选：弹出文件对话框让用户手动选择地图文件
     //QString fileName = QFileDialog::getOpenFileName(this,"打开地图","./","*.txt");
     if(!mGM->InitMap(":/1.txt")){
         QMessageBox::warning(this,"警告","文件打开失败");
     }
+
+    // 根据地图文件中的玩家位置创建角色（注释掉原来的错误出生点）
+    // mRole = new Role(this);  // 原来的错误方式
+    mRole = new Role(mGM->mPlayerRow, mGM->mPlayerCol, this);
 
     //定时调用更新函数
     mTimer = new QTimer(this);

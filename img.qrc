@@ -2,13 +2,13 @@
     <qresource prefix="/">
         <file>box.png</file>
         <file>Inpoint.png</file>
-        <file>people.png</file>
-        <file>point.png</file>
         <file>road.png</file>
         <file>wall.png</file>
-        <file>1.txt</file>
         <file>2.txt</file>
         <file>3.txt</file>
         <file>4.txt</file>
+        <file>people.png</file>
+        <file>point.png</file>
+        <file>1.txt</file>
     </qresource>
 </RCC>

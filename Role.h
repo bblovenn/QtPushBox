@@ -11,10 +11,11 @@ class Role : public QObject
     Q_OBJECT
 public:
     explicit Role(QObject *parent = nullptr);
+    Role(int startRow, int startCol, QObject *parent = nullptr);
 
     int mRow;
     int mCol;
-\
+
     // 作用：记录绘制时的屏幕像素坐标
     // 类型：QPoint = (x, y) 二维点
     // 与 mRow/mCol 的关系：

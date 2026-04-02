@@ -2,8 +2,20 @@
 
 Role::Role(QObject *parent) : QObject(parent)
 {
+    // 原来的错误出生点（硬编码在墙上）
+    // mRow = 1;
+    // mCol = 0;
     mRow = 1;
-    mCol = 0;
+    mCol = 1;
+    mImg = QImage("://people.png");
+    UpdatePaintPos();
+}
+
+// 新增：带参数的构造函数，从 GameMap 获取正确的出生点
+Role::Role(int startRow, int startCol, QObject *parent) : QObject(parent)
+{
+    mRow = startRow;
+    mCol = startCol;
     mImg = QImage("://people.png");
     UpdatePaintPos();
 }
@@ -33,8 +45,8 @@ void Role::UpdatePaintPos()
 
 void Role::Move(int dRow, int dCol)
 {
-    mRow = dRow;
-    mCol = dCol;
+    mRow += dRow;
+    mCol += dCol;
 
     UpdatePaintPos();
 }
